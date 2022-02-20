@@ -1,0 +1,31 @@
+{
+  "name": "identity-service",
+  "version": "0.0.1",
+  "private": true,
+  "description": "New Swagger API Project",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "gmail-send": "^1.8.14",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "q": "^1.5.1",
+    "request-promise": "^4.2.6",
+    "sql-query": "0.1.27",
+    "swagger-express-mw": "^0.1.0",
+    "swagger-ui-express": "^4.3.0",
+    "uuid": "^8.3.2",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test"
+  }
+}

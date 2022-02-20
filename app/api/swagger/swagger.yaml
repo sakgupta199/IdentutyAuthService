@@ -1,0 +1,75 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: AppService
+# during dev, should point to your local machine
+host: localhost:3000
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+  - text/html
+  - text/plain
+paths:
+  /login:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: appController
+    get:
+      description: Sends Mail to the username with link for login
+      # used as the method name of the controller
+      operationId: createLoginLink
+      parameters:
+        - name: userName
+          in: query
+          description: The username for the email
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /app:
+    x-swagger-router-controller: appController
+    get:
+      description: logged in user
+      # used as the method name of the controller
+      operationId: redirect
+      parameters:
+        - name: auth
+          in: query
+          description: The access token
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+           $ref: "#/definitions/LoggedInResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  LoggedInResponse:
+    type: string
