@@ -1,2 +1,2 @@
-# POC for identity servic
+# POC for identity service
 
