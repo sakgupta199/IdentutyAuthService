@@ -1,1 +1,2 @@
-# Skeleton project for Swagger
+# POC for identity service
+
