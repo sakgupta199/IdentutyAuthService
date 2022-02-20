@@ -51,8 +51,8 @@ var verify = function (token, clientId) {
                 }
               );
             } else if (res && res.length > 0 && res[0].status == 1) {
-              console.log(BigInt(Date.now()) - BigInt(res[0].ACCESSEDTIME));
-              if (BigInt(Date.now()) - BigInt(res[0].ACCESSEDTIME) > 120000n) {
+              console.log(Date.now() - res[0].ACCESSEDTIME);
+              if (Date.now() - res[0].ACCESSEDTIME > 120000) {
                 resolve(false);
                 //write a delete funtion in the cache
               } else {
