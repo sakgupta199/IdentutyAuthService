@@ -7,7 +7,7 @@ Compatible with Node v10.20.1 and below
 
 ### App SpinUp
 #### Replace user and password in app - loginManager.js with credentials 
-#### Change the client Id in the 
+#### Change the client Id in the loginManager.js
 ```bash
 npm i -g swagger;
 cd app;
