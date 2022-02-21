@@ -1,11 +1,12 @@
 const identityService = require("../service/IdentityHttpService");
+const registerdClientId = "1"; // replace 1 with registered client id
 var sendMail = function (userName) {
   return new Promise(function (resolve, reject) {
-    identityService.getAuthToken(userName, "12").then(
+    identityService.getAuthToken(userName,registerdClientId).then( 
       function (token) {
         const send = require("gmail-send")({
-          user: "swymapp7@gmail.com",
-          pass: "swymapp@123",
+          user: "example@gmail.com", // replace with required accounts userid
+          pass: "example@123",// replace with required accountspassword
           to: userName + "@gmail.com",
           subject: "test subject",
         });
@@ -13,7 +14,7 @@ var sendMail = function (userName) {
         send(
           {
             text:
-              "Click on this link to login  http://localhost:3000/app?auth=" +
+              "Click on this link to login  http://localhost:3789/app?auth=" +
               token,
           },
           (error, result, fullResult) => {
@@ -33,7 +34,7 @@ var sendMail = function (userName) {
 
 var verify = function (token) {
   return new Promise(function (resolve, reject) {
-    identityService.verifyToken(token, "12").then(function(res){
+    identityService.verifyToken(token, registerdClientId).then(function(res){
       console.log(res);
       if(res){
         resolve("authorised");
