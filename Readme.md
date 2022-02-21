@@ -102,7 +102,7 @@ This will send an email to your gmail id, once you click on the link you should 
 As of now the app is set to Expire the token in 2 minutes, we can change this in the JWTtokenManager file, the link will show "not authorised" after expiry of 2 minutes, or with an invalid token.
 
 ## Typical Workflow
-![UML Sequence Diagram](https://user-images.githubusercontent.com/100079612/155013925-a160c453-5a0b-44c2-96c1-af82106a3867.png)
+<img width="450" alt="UML Sequence Diagram" src="https://user-images.githubusercontent.com/100079612/155014213-3722d10c-b04a-46ae-ae76-6d371e21d17b.png">
 
 ## Improvements
 
