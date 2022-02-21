@@ -19,9 +19,9 @@ var execute = function(command){
     const con = mysql.createConnection({
       host: "127.0.0.1",
       multipleStatements: true,
-      user: "root",
-      database: "IdentityApiData",
-      password: "Passw0rd"
+      user: "root", // replace with your mysql user
+      database: "IdentityApiData", // replace with your mysql databasename
+      password: "Passw0rd" // replace with your mysql password
     });
     con.connect(function(err) {
       if (err) {
