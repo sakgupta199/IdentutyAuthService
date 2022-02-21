@@ -8,7 +8,7 @@ var create = function (userName, clientId) {
   //private key
   var uuid = uuidv4();
   var privateKey = fs.readFileSync(
-    "/Users/sakgupta/Desktop/interview/project/identityservice/api/helpers/jwtRS256.key"
+    "/Users/sakgupta/Desktop/interview/project/identityservice/api/helpers/jwtRS256.key" //replace with your private key path
   );
   var token = jwt.sign({ username: userName, uuid: uuid }, privateKey, {
     algorithm: "RS256",
@@ -32,7 +32,7 @@ var verify = function (token, clientId) {
       ///public key
       var cert = fs.readFileSync(
         "/Users/sakgupta/Desktop/interview/project/identityservice/api/helpers/jwtRS256.key.pub"
-      ); // get public key
+      ); // replace with your public key path
       jwt.verify(token, cert, function (err, decoded) {
         if (err) {
           reject(err || "err");
